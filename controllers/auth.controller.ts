@@ -3,6 +3,11 @@ import axiosLib, { Axios } from 'axios';
 import https from 'https';
 import fs from 'fs';
 
+// global vars
+const configUrl: string | undefined = process.env.URL;
+const creditor_id: string | undefined = process.env.CREDITOR_ID;
+const api_key: string | undefined = process.env.API_KEY;
+
 // configs
 const config: any = {
     mobileBankIdPolicy: '1.2.3.4.25',
@@ -31,6 +36,7 @@ function initSign(req: Request, res: Response): Response {
         console.log(res);
         // checm res[data];
     })
+
     return res.send({msg: 'initSign hit'});
 }
 

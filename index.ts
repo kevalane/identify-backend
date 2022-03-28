@@ -1,5 +1,4 @@
 import express, {Request, Response} from 'express';
-
 import {authRouter} from './routes/auth.routes';
 
 // global constants
