@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
 import {authRouter} from './routes/auth.routes';
 
-// global consts
+// global constants
 const configUrl: string = '/api/';
 
 // init app
