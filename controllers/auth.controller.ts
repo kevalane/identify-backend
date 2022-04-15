@@ -31,12 +31,11 @@ const axios: Axios = axiosLib.create({
 function initSign(req: Request, res: Response): Response {
     axios.post(config.bankdIdUrl + '/auth', {
         endUserIp: '127.0.0.1',
-        personalNumber: '200104144092'
+        personalNumber: req.body.ssn
     }).then(res => {
         console.log(res);
         // checm res[data];
-    })
-
+    });
     return res.send({msg: 'initSign hit'});
 }
 

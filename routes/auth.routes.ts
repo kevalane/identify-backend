@@ -3,6 +3,6 @@ import { initSign } from '../controllers/auth.controller';
 
 let authRouter: Router = express.Router();
 
-authRouter.get('/initSign', initSign);
+authRouter.post('/initSign', initSign);
 
 export { authRouter };
