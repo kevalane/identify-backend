@@ -28,16 +28,15 @@ const axios: Axios = axiosLib.create({
     },
 })
 
-function initSign(req: Request, res: Response): Response {
+function initSign(req: Request, res: Response): Response | void {
     axios.post(config.bankdIdUrl + '/auth', {
         endUserIp: '127.0.0.1',
-        personalNumber: '200104144092'
-    }).then(res => {
-        console.log(res);
-        // checm res[data];
-    })
-
-    return res.send({msg: 'initSign hit'});
+        personalNumber: req.body.ssn
+    }).then(response => {
+        return res.send({msg: 'Öppna Mobilt BankID och legitimera dig ...', data: response['data']});
+    }).catch(err => {
+        return res.status(400).send({err: err.message});
+    });
 }
 
 export {
