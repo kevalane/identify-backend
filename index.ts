@@ -1,5 +1,6 @@
 import express, {Request, Response} from 'express';
 import {authRouter} from './routes/auth.routes';
+import bodyParser from 'body-parser';
 
 // global constants
 const configUrl: string = '/api/';
@@ -10,6 +11,8 @@ const port = 3000;
 app.listen(port, () => {
 	console.log('Running on port ' + port);
 });
+
+app.use(bodyParser.json());
 
 // Routes
 app.use(configUrl + 'auth', authRouter);
